@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SDX - Personal Trading Automation</title>
+<style>
+  :root { color-scheme: dark; }
+  body {
+    margin: 0; min-height: 100vh; display: grid; place-items: center;
+    background: #0e1116; color: #e6edf3;
+    font: 16px/1.65 -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  }
+  main { max-width: 720px; padding: 48px 28px; }
+  h1 { font-size: 2rem; margin: 0 0 .25em; letter-spacing: -.02em; }
+  .tag { color: #7d8590; margin: 0 0 2.5em; }
+  h2 { font-size: 1rem; text-transform: uppercase; letter-spacing: .08em; color: #7d8590; margin: 2.2em 0 .6em; }
+  ul { margin: 0; padding-left: 1.2em; }
+  li { margin: .35em 0; }
+  code { background: #161b22; padding: .15em .4em; border-radius: 4px; font-size: .9em; }
+  footer { margin-top: 3em; padding-top: 1.5em; border-top: 1px solid #21262d; color: #7d8590; font-size: .875rem; }
+  a { color: #58a6ff; }
+</style>
+</head>
+<body>
+<main>
+  <h1>SDX</h1>
+  <p class="tag">Personal trading automation, built for a single account.</p>
+
+  <h2>What it is</h2>
+  <p>
+    SDX is a private, single-user application that automates rule-based trading on the
+    owner's own cTrader account through the cTrader Open API. It is not a platform,
+    not a signal service, and it does not manage money for anyone else.
+  </p>
+
+  <h2>How it works</h2>
+  <ul>
+    <li>Connects to the cTrader Open API over an authenticated, encrypted channel.</li>
+    <li>Evaluates a fixed rule set on closed candles only - no intrabar guessing.</li>
+    <li>Sizes every position from a fixed money-at-risk budget, never a fixed lot.</li>
+    <li>Enforces hard limits: daily loss cap, maximum trades per day, spread and session filters.</li>
+    <li>Attaches server-side stop-loss and take-profit to every order it places.</li>
+  </ul>
+
+  <h2>Safety model</h2>
+  <ul>
+    <li>One position at a time per instrument. No grid, no martingale, no averaging down.</li>
+    <li>A kill-switch flattens and halts trading once the daily loss limit is hit.</li>
+    <li>A dry-run mode logs decisions without sending any order.</li>
+  </ul>
+
+  <h2>Scope of access</h2>
+  <p>
+    The application requests access to the owner's own trading accounts only
+    (<code>trading</code> scope). It stores OAuth tokens locally on the owner's machine.
+  </p>
+
+  <footer>
+    Personal project &middot; Operated by the account owner &middot;
+    Contact: <a href="mailto:2839685314@qq.com">2839685314@qq.com</a>
+  </footer>
+</main>
+</body>
+</html>
